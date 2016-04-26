@@ -1,16 +1,15 @@
 package union_find;
 
-public class WeightedQuickUnion {
+public class WeightedQuickUnionWithPathCompression {
 	private int[] id;
 	private int[] wt;
 
-	public WeightedQuickUnion(int n) {
+	public WeightedQuickUnionWithPathCompression(int n) {
 		id = new int[n];
 		wt = new int[n];
 		for (int i = 0; i < n; i++) {
 
 			id[i] = i;
-			wt[i] = 1;
 		}
 	}
 
@@ -42,16 +41,14 @@ public class WeightedQuickUnion {
 
 	public static void main(String[] args) {
 
-		WeightedQuickUnion uf = new WeightedQuickUnion(10);
-		uf.union(5, 7);
-		uf.union(2, 8);
-		uf.union(3, 1);
-		uf.union(0, 6);
-		uf.union(8, 9);
-		uf.union(9, 4);
-		uf.union(2, 7);
-		uf.union(1, 0);
-		uf.union(0, 8);
+		WeightedQuickUnionWithPathCompression uf = new WeightedQuickUnionWithPathCompression(10);
+		uf.union(9, 0);
+
+		uf.union(4, 6);
+		uf.union(2, 1);
+		uf.union(7, 6);
+		uf.union(2, 3);
+		uf.union(4, 9);
 		for (int e : uf.id) {
 			System.out.print(e + " ");
 
